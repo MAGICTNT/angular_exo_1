@@ -1,16 +1,29 @@
 import { Component } from '@angular/core';
 
+type Series = 
+  | "Breaking Bad" 
+  | "Game of Thrones" 
+  | "Stranger Things" 
+  | "The Witcher" 
+  | "The Mandalorian";
+
 @Component({
   selector: 'app-series',
   standalone: true,
   imports: [],
   templateUrl: './series.component.html',
-  styleUrl: './series.component.css'
+  styleUrls: ['./series.component.css']
 })
 export class SeriesComponent {
-  series: string[] = ["la chose venu d'un autre monde", "matrix", "cube"];
+  series: Series[] = [
+    "Breaking Bad", 
+    "Game of Thrones", 
+    "Stranger Things", 
+    "The Witcher", 
+    "The Mandalorian"
+  ];
 
   delete(index: number): void {
-    this.series.splice(index, 1); // Supprime l'élément à l'index donné
+    this.series.splice(index, 1);
   }
 }
