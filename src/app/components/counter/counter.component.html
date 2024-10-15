@@ -1,3 +1,11 @@
-<p [class]="i > 0 ? maClassA : maClassB">counter {{ i }}</p>
-<button (click)="sub()">-</button>
-<button (click)="add()">+</button>
+<div class="flex items-center justify-center h-screen">
+    <div class="w-1/2 mx-auto text-center">
+        <p [class]="i > 0 ? maClassA : maClassB">counter {{ i }}</p>
+        <h1 class="text-3xl font-bold underline">Hello world!</h1>
+        
+        <div class="mt-4">
+            <button class="bg-red-500 px-5 py-2 text-white rounded hover:bg-red-700" (click)="sub()">-</button>
+            <button class="bg-green-500 px-5 py-2 text-white rounded hover:bg-green-700" (click)="add()">+</button>
+        </div>
+    </div>
+</div>
