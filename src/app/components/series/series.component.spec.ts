@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SeriesComponent } from './series.component';
-import { OrderTablePipe } from '../../utils/pipes/order-table.pipe';
+import { OrderTablePipe } from '../../utils/pipes/trie/order-table.pipe';
 
 describe('SeriesComponent', () => {
   let component: SeriesComponent;

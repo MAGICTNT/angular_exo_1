@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { OrderTablePipe } from "../../utils/pipes/order-table.pipe";
+import { OrderTablePipe } from "../../utils/pipes/trie/order-table.pipe";
 type order = "asc" | "desc";
 type Series = 
   | "Breaking Bad" 
@@ -33,7 +33,7 @@ throw new Error('Method not implemented.');
   ];
 
   delete(index: number): void {
-    this.series.splice(index, 1);
+    this.series = this.series.splice(index, 1);
   }
   order(): void{
     this.orderValue = ! this.orderValue;
@@ -45,7 +45,6 @@ throw new Error('Method not implemented.');
       this.textButton = "croisant";
       this.orderChoix = "desc";
     }
-
 
   }
 }

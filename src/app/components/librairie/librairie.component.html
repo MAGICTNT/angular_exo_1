@@ -1,0 +1,15 @@
+<div class="space-y-4">
+@for(book of bookList ; track book; let i = $index){
+
+
+
+    <div class="bg-gray-100 p-4 rounded shadow" >
+      <p class="text-lg font-semibold text-blue-800">{{ book.title }}</p>
+      <p class="text-md text-gray-700">{{ book.author }}</p>
+      <p class="text-md" >
+        {{ book.isRead | booleanEmo }}
+      </p>
+    </div>
+}
+</div>
+  
