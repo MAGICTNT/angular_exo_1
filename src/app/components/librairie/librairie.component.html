@@ -9,6 +9,7 @@
       <p class="text-md" >
         {{ book.isRead | booleanEmo }}
       </p>
+      <button (click)="book.toggleReadStatus()">lire</button>
     </div>
 }
 </div>
