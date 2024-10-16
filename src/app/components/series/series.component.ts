@@ -16,6 +16,7 @@ type Series =
   styleUrls: ['./series.component.css']
 })
 export class SeriesComponent {
+
 typeof(arg0: string) {
 throw new Error('Method not implemented.');
 }

@@ -4,7 +4,19 @@ import { SeriesComponent } from './components/series/series.component';
 import { LibrairieComponent } from './components/librairie/librairie.component';
 
 export const routes: Routes = [
-    {path: '', component: CounterComponent},
-    {path: 'series', component: SeriesComponent},
-    {path: 'books', component: LibrairieComponent}
+    {
+        path: '', 
+        title: "home",
+        component: CounterComponent
+    },
+    {
+        path: 'series',
+        title: "exo serie",
+        component: SeriesComponent
+    },
+    {
+        path: 'books', 
+        title: "exo livre",
+        component: LibrairieComponent
+    }
 ];
