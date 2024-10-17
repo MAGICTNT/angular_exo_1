@@ -1,0 +1,105 @@
+
+
+<section class="max-w-2xl mx-auto bg-white p-8 shadow-md rounded-lg">
+  <h2 class="text-2xl font-bold mb-6">Créer un Pokémon</h2>
+  <form (ngSubmit)="save_poke()" [formGroup]="add_pokemon" class="space-y-4">
+    <div>
+      <label for="nom" class="block text-sm font-medium text-gray-700">Nom</label>
+      <input 
+        type="text" 
+        id="nom" 
+        formControlName="nom" 
+        class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+      />
+    </div>
+
+    <div>
+      <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+      <input 
+        type="text" 
+        id="description" 
+        formControlName="description" 
+        class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+      />
+    </div>
+
+    <fieldset formGroupName="attaque_list" class="border border-gray-300 p-4 rounded-md">
+      <legend class="text-lg font-semibold text-gray-700">Attaque</legend>
+      <div class="space-y-4">
+        <div>
+          <label for="nomAttack" class="block text-sm font-medium text-gray-700">Nom de l'attaque</label>
+          <input 
+            type="text" 
+            id="nomAttack" 
+            formControlName="nom" 
+            class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          />
+        </div>
+        <div>
+          <label for="descAttack" class="block text-sm font-medium text-gray-700">Description de l'attaque</label>
+          <input 
+            type="text" 
+            id="descAttack" 
+            formControlName="desciption" 
+            class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          />
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset formArrayName="type_list" class="border border-gray-300 p-4 rounded-md">
+      <legend class="text-lg font-semibold text-gray-700">Types</legend>
+      <div class="space-y-4">
+        @for (control of typeList.controls; track control; let i = $index) {
+            <div>
+                <label [for]="'type' + i" class="block text-sm font-medium text-gray-700">Nom du type {{ i + 1 }}</label>
+                <input 
+                  type="text" 
+                  [id]="'type' + i" 
+                  [formControlName]="i" 
+                  class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                />
+              </div>
+        }
+        <button 
+          type="button" 
+          (click)="addType()" 
+          class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        >
+          Ajouter un type
+        </button>
+      </div>
+    </fieldset>
+
+    <fieldset formGroupName="zone" class="border border-gray-300 p-4 rounded-md">
+      <legend class="text-lg font-semibold text-gray-700">Zone</legend>
+      <div class="space-y-4">
+        <div>
+          <label for="nomZone" class="block text-sm font-medium text-gray-700">Nom de la zone</label>
+          <input 
+            type="text" 
+            id="nomZone" 
+            formControlName="nom" 
+            class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          />
+        </div>
+        <div>
+          <label for="regionZone" class="block text-sm font-medium text-gray-700">Région de la zone</label>
+          <input 
+            type="text" 
+            id="regionZone" 
+            formControlName="region" 
+            class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          />
+        </div>
+      </div>
+    </fieldset>
+
+    <button 
+      type="submit" 
+      class="w-full inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+    >
+      Enregistrer
+    </button>
+  </form>
+</section>
