@@ -1,35 +1,43 @@
-<!-- 
-<section>
-    <h2>Créé un pokémon</h2>
-    <form (ngSubmit)="save_poke()" [formGroup]="add_pokemon">
-        <label for="nom">nom </label>
-        <input type="text" id="nom" formControlName="nom">
-        <label for="description">description </label>
-        <input type="text" id="description" formControlName="description">
-        <div formGroupName="attaque_list">
-            <label for="nomAttack">nomAttack </label>
-            <input type="text" id="nomAttack" formControlName="nom">
-            <label for="descAttack">descAttack </label>
-            <input type="text" id="descAttack" formControlName="desciption">
-        </div>
-        <div formArrayName="type_list">
-            <legend>modules</legend>
-            @for (control of typeList.controls; track control; let i = $index) {
-                <label [for]="'type' + $index">nom du type {{$index + 1}}</label>
-                <input type="text" [id]="'type' + $index" [formControlName]="$index">
-            }
-            <button (click)="addType()">add module</button>
-        </div>
-        <div formGroupName="zone">
-            <label for="nomZone">nomZone </label>
-            <input type="text" id="nomZone" formControlName="nom">
-            <label for="regionZone">regionZone </label>
-            <input type="text" id="regionZone" formControlName="region">
-        </div>
+<section class="flex flex-col m-3 p-2 rounded-lg border border-blue-500 ">
+    @for (poke of pokeList; track poke; let i = $index) {
+   <div class="flex">
+    <div class="w-1/6">
+        <h6>nom:</h6>
+        <p>{{ poke.nom }}</p>
+      </div>
+      <div class="w-1/6">
+        <h6>description:</h6>
+        <p>{{ poke.description }}</p>
+      </div>
+      <div class="w-1/6">
+        <h6>attack:</h6>
+        @for (atk of poke.attaque_list; track atk; let i = $index) {
+          <p class="infobulle" [ariaLabel]="atk.description">
+              {{ atk.nom }}  deg:{{ atk.degat }}<span></span>
+            </p>
+      }
+      </div>
+      <div class="w-1/6">
+        <p>de type :</p>
+        <ul>
+          @for (type of poke.type_list; track type; let i = $index) {
+          <li>{{ type }}</li>
+          }
+      </ul>
+      </div>
+      <div class="w-1/6">
+        <p>{{ poke.zone.nom }}</p>
+        <p>{{ poke.zone.region }}</p>
+      </div>
+      <button
+        class="w-1/6 mt-4 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"
+        (click)="deletePokemon(i)">
+        Supprimer
+      </button>
+   </div>
+}
+</section>
 
-        <button type="submit">save</button>
-    </form>
-</section> -->
 
 <section class="max-w-2xl mx-auto bg-white p-8 shadow-md rounded-lg">
   <h2 class="text-2xl font-bold mb-6">Créer un Pokémon</h2>
