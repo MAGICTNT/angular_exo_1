@@ -9,41 +9,55 @@ import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Va
   styleUrl: './poke.component.css'
 })
 export class PokeComponent {
-  add_pokemon: FormGroup = new FormGroup(
-    {
-      nom : new FormControl('', [
-        Validators.required
-      ]),
-      description : new FormControl("", [
-        Validators.required
-      ]),
-      type_list: new FormArray([
-        new FormControl(""),
-        new FormControl("")
-      ]),
-      attaque_list: new FormGroup({
-        nom : new FormControl('',[]),
-        desciption : new FormControl('',[]),
-        degat : new FormControl('',[]),
-      }),
-      zone: new FormGroup({
-        nom : new FormControl('',[]),
-        region : new FormControl('',[]),
-      })
-      // création d'un objet
-    } ,[] // posibiliter de créé des require
-  )
-  get typeList(){
-    return this.add_pokemon.get('type_list') as FormArray;  
+  add_pokemon: FormGroup = new FormGroup({
+    nom: new FormControl('', [Validators.required]),
+    description: new FormControl("", [Validators.required]),
+    type_list: new FormArray([new FormControl("")]),
+    attaque_list: new FormArray(
+      [
+        new FormGroup({
+          nom: new FormControl('', []),
+          description: new FormControl('', []),
+          degat: new FormControl('', []),
+        })
+      ]), // Utilisation de FormArray pour attaques
+    zone: new FormGroup({
+      nom: new FormControl('', []),
+      region: new FormControl('', []),
+    })
+  });
+
+  get typeList() {
+    return this.add_pokemon.get('type_list') as FormArray;
   }
-  addType() : void{
-    this.typeList.push(new FormControl(""))
+
+  get attaqueList() {
+    return this.add_pokemon.get('attaque_list') as FormArray;
   }
-  
-  save_poke(): void{
-    if(this.add_pokemon.valid){
-      console.log("sauvegarde de la formation ", this.add_pokemon.value)
-      this.add_pokemon.reset()
+
+  createAttack(): FormGroup {
+    return new FormGroup({
+      nom: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
+      degat: new FormControl('', [Validators.required]),
+    });
+  }
+
+  addType(): void {
+    this.typeList.push(new FormControl(""));
+  }
+
+  addAttack(): void {
+    this.attaqueList.push(new FormGroup({
+      nom: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
+      degat: new FormControl('', [Validators.required]),
+    }));
+  }
+
+  save_poke(): void {
+    if (this.add_pokemon.valid) {
+      console.log("Sauvegarde du Pokémon", this.add_pokemon.value);
+      this.add_pokemon.reset();
     }
-  }
-}
+  }}
