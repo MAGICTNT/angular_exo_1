@@ -28,5 +28,6 @@ interface pokeType  {
 })
 export class CardsPokemonComponent {
 @Input() poke!: pokeType
-
+ randomNumber: number = Math.floor(Math.random() * 100) + 1;
+  img: string = "https://lorempokemon.fakerapi.it/pokemon/200/"+this.randomNumber
 }

@@ -55,19 +55,19 @@ export class PokeComponent {
   pokeList: pokeType[] = [];
 
   add_pokemon: FormGroup = new FormGroup({
-    nom: new FormControl('', [Validators.required]),
-    description: new FormControl('', [Validators.required]),
-    type_list: new FormArray([new FormControl('')]),
+    nom: new FormControl('r', [Validators.required]),
+    description: new FormControl('r', [Validators.required]),
+    type_list: new FormArray([new FormControl('r')]),
     attaque_list: new FormArray([
       new FormGroup({
-        nom: new FormControl('', []),
-        description: new FormControl('', []),
-        degat: new FormControl('', []),
+        nom: new FormControl('r', []),
+        description: new FormControl('r', []),
+        degat: new FormControl(0, []),
       }),
     ]), // Utilisation de FormArray pour attaques
     zone: new FormGroup({
-      nom: new FormControl('', []),
-      region: new FormControl('', []),
+      nom: new FormControl('t', []),
+      region: new FormControl('t', []),
     }),
   });
 
@@ -120,7 +120,7 @@ export class PokeComponent {
         this.deleteType(i);
       }
   
-      this.add_pokemon.reset();
+      // this.add_pokemon.reset();
     }
   }
 
