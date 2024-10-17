@@ -7,19 +7,20 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { CardsPokemonComponent } from "../cards-pokemon/cards-pokemon.component";
 
-type Attack = {
+interface Attack  {
   nom: string;
   description: string;
   degat: number;
 };
 
-type Zone = {
+interface Zone  {
   nom: string;
   region: string;
 };
 
-type pokeType = {
+interface pokeType  {
   nom: string;
   description: string;
   type_list: string[];
@@ -30,7 +31,7 @@ type pokeType = {
 @Component({
   selector: 'app-poke',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, CardsPokemonComponent],
   templateUrl: './poke.component.html',
   styleUrl: './poke.component.css',
 })
@@ -110,11 +111,11 @@ export class PokeComponent {
     if (this.add_pokemon.valid) {
       console.log('Sauvegarde du Pokémon', this.add_pokemon.value);
       this.pokeList.push(this.add_pokemon.value);
+
       for (let i = this.attaqueList.length - 1; i > 0; i--) {
         this.deleteAttack(i);
       }
   
-      // Suppression des types (en partant de la fin pour éviter les problèmes d'index)
       for (let i = this.typeList.length - 1; i > 0; i--) {
         this.deleteType(i);
       }

@@ -1,0 +1,35 @@
+<div class="flex">
+    <div class="w-1/6">
+        <h6>nom:</h6>
+        <p>{{ poke.nom }}</p>
+      </div>
+      <div class="w-1/6">
+        <h6>description:</h6>
+        <p>{{ poke.description }}</p>
+      </div>
+      <div class="w-1/6">
+        <h6>attack:</h6>
+        @for (atk of poke.attaque_list; track atk; let i = $index) {
+          <p class="infobulle" [ariaLabel]="atk.description">
+              {{ atk.nom }}  deg:{{ atk.degat }}<span></span>
+            </p>
+      }
+      </div>
+      <div class="w-1/6">
+        <p>de type :</p>
+        <ul>
+          @for (type of poke.type_list; track type; let i = $index) {
+          <li>{{ type }}</li>
+          }
+      </ul>
+      </div>
+      <div class="w-1/6">
+        <p>{{ poke.zone.nom }}</p>
+        <p>{{ poke.zone.region }}</p>
+      </div>
+      <button
+        class="w-1/6 mt-4 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"
+        >
+        Supprimer
+      </button>
+   </div>
