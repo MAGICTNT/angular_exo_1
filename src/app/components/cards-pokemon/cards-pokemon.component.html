@@ -1,4 +1,4 @@
-<div class="flex">
+<div class="flex flex-row flex-wrap">
   <div
     class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
   >
@@ -58,6 +58,10 @@
           </svg>
         </a>
     </div>
+    <button (click)="sendData(poke.nom)" class="w-1/6 mt-4 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600"
+    >
+    Supprimer
+  </button>
     </div>
   </div>
 

@@ -123,9 +123,15 @@ export class PokeComponent {
       // this.add_pokemon.reset();
     }
   }
+  receiveData: number = 0
 
-  deletePokemon(index: number) {
-    this.pokeList.splice(index, 1); 
+  handleData(data:number) {
+    this.receiveData = data
+    this.pokeList.splice(this.receiveData, 1); 
   }
+  // handleData(data:number){
+    
+  //   console.log(data)
+  // }
   
 }

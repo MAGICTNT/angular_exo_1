@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 interface Attack  {
   nom: string;
@@ -19,6 +19,8 @@ interface pokeType  {
   zone: Zone;
 };
 
+type PokemonType = "feu"|"eau"
+
 @Component({
   selector: 'app-cards-pokemon',
   standalone: true,
@@ -28,6 +30,21 @@ interface pokeType  {
 })
 export class CardsPokemonComponent {
 @Input() poke!: pokeType
+ id = 0;
  randomNumber: number = Math.floor(Math.random() * 100) + 1;
   img: string = "https://lorempokemon.fakerapi.it/pokemon/200/"+this.randomNumber
+
+  getTypeColor(type:string):string{
+    const typeColors: Record<PokemonType, string> = {
+      feu: "bg-red-500",
+      eau: "bg-blue-500"
+    }
+    return "";
+  }
+
+  @Output() dataEmitted = new EventEmitter<number>()
+
+  sendData(name:string): void{
+   this.dataEmitted.emit(0)
+  }
 }
