@@ -12,7 +12,7 @@ export class ChuckService {
 
   constructor(private http: HttpClient) { }
 
-  getBook(): Observable<chuck> {
+  getJoke(): Observable<chuck> {
     return this.http.get<chuck>(this.API_URL)
   }
 

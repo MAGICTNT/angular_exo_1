@@ -24,7 +24,7 @@ export class ChucknorisComponent implements OnInit{
     }
 
     newChuck(): void{
-      this.chuckService.getBook().subscribe((data: chuck) => {
+      this.chuckService.getJoke().subscribe((data: chuck) => {
         this.chuck = data
       })
     }
