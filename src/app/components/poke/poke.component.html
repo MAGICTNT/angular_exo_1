@@ -1,6 +1,6 @@
 <section class="flex flex-col m-3 p-2 rounded-lg border border-blue-500 ">
     @for (poke of pokeList; track poke; let i = $index) {
-        <app-cards-pokemon [poke]="poke" (dataEmitted)="handleData($event)"/>
+        <app-cards-pokemon [poke]="poke" id="i" (dataEmitted)="handleData($event)"/>
 }
 </section>
 

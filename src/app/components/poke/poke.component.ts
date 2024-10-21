@@ -126,7 +126,11 @@ export class PokeComponent {
   receiveData: number = 0
 
   handleData(data:number) {
+    console.log("receiveData defor:" + this.receiveData)
     this.receiveData = data
+    console.log("receiveData after:" + this.receiveData)
+
+    
     this.pokeList.splice(this.receiveData, 1); 
   }
   // handleData(data:number){

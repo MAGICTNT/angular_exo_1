@@ -30,7 +30,7 @@ type PokemonType = "feu"|"eau"
 })
 export class CardsPokemonComponent {
 @Input() poke!: pokeType
- id = 0;
+ 
  randomNumber: number = Math.floor(Math.random() * 100) + 1;
   img: string = "https://lorempokemon.fakerapi.it/pokemon/200/"+this.randomNumber
 
@@ -44,7 +44,8 @@ export class CardsPokemonComponent {
 
   @Output() dataEmitted = new EventEmitter<number>()
 
-  sendData(name:string): void{
-   this.dataEmitted.emit(0)
+  sendData(id:number): void{
+   this.dataEmitted.emit(id)
+  console.log(id)
   }
 }
